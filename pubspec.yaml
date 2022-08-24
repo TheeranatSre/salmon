@@ -37,6 +37,7 @@ dependencies:
   flutter_launcher_icons: ^0.9.3
   bloc: ^8.1.0
   flutter_bloc: ^8.0.1
+  firebase_core: ^1.20.1
 
 flutter_icons:
   android: true
