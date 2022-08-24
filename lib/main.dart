@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:salmon/screens/CreateMenuScreen.dart';
 import 'package:salmon/screens/HomeScreen.dart';
@@ -5,7 +6,9 @@ import 'package:salmon/screens/MenuScreen.dart';
 import 'package:salmon/screens/SearchMenuScreen.dart';
 import 'models/CounterModel.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -26,8 +29,30 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  final Future<FirebaseApp> firebase = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
+    // return FutureBuilder(
+    //   future: firebase,
+    //   builder: (context, snapshot) {
+    //     if (snapshot.hasError) {
+    //       return Scaffold(
+    //         appBar: AppBar(
+    //           title: const Text("Error"),
+    //         ),
+    //         body: Center(
+    //           child: Text("$snapshot"),
+    //         ),
+    //       );
+    //     }
+    //     return const Scaffold(
+    //       body: Center(
+    //         child: CircularProgressIndicator(),
+    //       ),
+    //     );
+    //   },
+    // );
     return const DefaultTabController(
         length: 4,
         child: Scaffold(
