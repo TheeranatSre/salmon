@@ -38,10 +38,14 @@ dependencies:
   bloc: ^8.1.0
   flutter_bloc: ^8.0.1
   firebase_core: ^1.20.1
+  flutter_svg: ^1.1.4
+  cloud_firestore: ^3.4.7
+  hexcolor: ^2.0.7
 
 flutter_icons:
   android: true
-  image_path: "image/icon3.png"
+  ios: true
+  image_path: "assets/icons/IconApp.png"
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +63,19 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  assets:
+  # icon
+      - assets/icons/ic_nav_home.png
+      - assets/icons/ic_nav_add_menu.png
+      - assets/icons/ic_nav_menu.png
+      - assets/icons/ic_nav_notification.png
+      - assets/icons/ic_nav_search.png
+      - assets/icons/ic_delete.png
+
+  # images
+      - assets/images/im_cooking.png
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -95,3 +112,19 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+      - family: prompt-light
+        fonts:
+          - asset: assets/fonts/Prompt-Light.ttf
+      - family: prompt-regular
+        fonts:
+          - asset: assets/fonts/Prompt-Regular.ttf
+      - family: prompt-medium
+        fonts:
+          - asset: assets/fonts/Prompt-Medium.ttf
+      - family: prompt-bold
+        fonts:
+          - asset: assets/fonts/Prompt-Bold.ttf
+
+
