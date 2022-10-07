@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -13,8 +15,22 @@ class MenuScreen extends StatefulWidget {
 }
 
 class _MenuScreenState extends State<MenuScreen> {
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>[
+    "email",
+    "https://www.googleapis.com/auth/contacts.readonly",
+  ]);
+
+  Future<void> _handleSignOut() => _googleSignIn.disconnect();
+
+  Future<void> _setSharedPerference() async {
+    final prefs = await SharedPreferences.getInstance();
+    final int? counter = prefs.getInt('isLogin');
+    print(counter);
+  }
+
   @override
   Widget build(BuildContext context) {
+    _setSharedPerference();
     return Scaffold(
       appBar: AppBar(
         title: Container(
@@ -28,6 +44,16 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
         ),
         backgroundColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              _googleSignIn.disconnect();
+            },
+            child: Text('ออกจากระบบ'),
+          ),
+        ],
       ),
     );
   }
