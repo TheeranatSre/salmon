@@ -12,14 +12,14 @@ import 'package:salmon/screens/SearchMenuScreen.dart';
 
 import '../constants/Strings.dart';
 
-class MainApp extends StatefulWidget {
-  const MainApp({Key? key}) : super(key: key);
+class BottomNavBarWidgets extends StatefulWidget {
+  const BottomNavBarWidgets({Key? key}) : super(key: key);
 
   @override
-  State<MainApp> createState() => _MainAppState();
+  State<BottomNavBarWidgets> createState() => _BottomNavBarWidgetsState();
 }
 
-class _MainAppState extends State<MainApp> {
+class _BottomNavBarWidgetsState extends State<BottomNavBarWidgets> {
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
 
   int _onSelectMenuIndex = 0;
